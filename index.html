@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seminararbeit Projekte Landkreis Fürstenfeldbruck</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 15px;
+            display: flex;
+            height: fit-content;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        header img {
+            height: 30px;
+            width: 30px;
+        }
+        .headerimg {
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        nav {
+            display: none;
+            flex-direction: column;
+            background-color: #003366;
+            position: absolute;
+            top: 70px;
+            right: 15px;
+            border: 1px solid white;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-bottom: 1px solid white;
+        }
+        nav a:last-child {
+            border-bottom: none;
+        }
+        .menu-toggle {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+        .menu-right {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+            margin-left: auto;
+            margin-right: 15px;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .menu-right {
+                display: block;
+            }
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .login-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"],
+        .login-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .login-form input[type="submit"] {
+            background-color: transparent;
+            border: 1px solid rgba(128, 128, 128, 0.644);
+            background: #f4f2f2;
+            cursor: not-allowed;
+        }
+        .login-form input[type="submit"].active {
+            background-color: #003366;
+            color: #fff;
+            cursor: pointer;
+        }
+        .text-section {
+            max-width: 800px;
+            width: 100%;
+            font-size: smaller;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+        .text-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .text-section p {
+            font-size: 1em;
+            color: #333;
+        }
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .form-txt {
+            font-weight: bold;
+            margin-bottom: 25px;
+            margin-top: 17px;
+        }
+        .pwdcon {
+            font-size: small;
+            color: #8d8c8c;
+            margin: 7px;
+        }
+        .dot {
+            font-size: 8px;
+        }
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            top: 25px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .overlay.active {
+            display: block;
+        }
+        .menu-line {
+            width: 25px;
+            height: 3px;
+            color: #fff;
+            margin: 4px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="first">
+        <div class="headerimg">
+            <img src="a1525aa2c74d1eb05bf1f41234727bcf-removebg-preview.png"> Bildungsamt Jgst-11
+        </div>
+        <h1>P-Seminararbeit Projekte Landkreis Fürstenfeldbruck</h1>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="menu" id="menu">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+    </div>
+    <style>
+        .menu {
+            cursor: pointer;
+        }
+        .menu:hover {
+            background: #5a595995;
+            border: #5a595995;
+            border-radius: 12px;
+        }
+        .menu-line {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .side-menu {
+            border-radius: 2px;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: white;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 80px;
+            z-index: 10000;
+        }
+        .menuBtn {
+            padding: 10px 10px;
+            text-decoration: none;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(165, 162, 162, 0.756);
+            margin-right: 28px;
+            margin-left: 10px;
+            font-size: 1.2rem;
+            color: black;
+            display: block;
+            transition: 0.3s;
+            font-family: sans-serif;
+        }
+        .side-menu a:hover {
+            background-color: #6e71724f;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            color: black;
+            cursor: pointer;
+        }
+        .menu-icon {
+            height: 19px;
+            width: 19px;
+        }
+        .accicon {
+            width: 30px;
+            height: 23px;
+        }
+    </style>
+    <div id="sideMenu" class="side-menu">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <a class="menuBtn" href="#" data-target="acc.html"><strong> Projekte </strong></a>
+        <a class="menuBtn" href="#" data-target="about.html"> <strong> Bildungsamt </strong> </a>
+        <a class="menuBtn" href="#" data-target="contact.html"> <strong> Landratsamt </strong> </a>
+        <a class="menuBtn" href="#" data-target="index.html"> <strong> Kontakt</strong> </a>
+    </div>
+    <script>
+        document.getElementById('menu').addEventListener('click', function() {
+            document.getElementById('sideMenu').style.width = '250px';
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', function() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        closeBtn.addEventListener('click', function() {
+            document.getElementById('sideMenu').style.width = '0';
+            overlay.classList.remove('active');
+        });
+
+        document.querySelectorAll('.menuBtn').forEach(function(btn) {
+            btn.addEventListener('click', function(event) {
+                event.preventDefault();
+                var target = this.getAttribute('data-target');
+                document.getElementById('sideMenu').style.width = '0';
+                document.getElementById('loadingOverlay').style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = target;
+                }, 300);
+            });
+        });
+    </script>
+</header>
+
+<div class="content">
+    <img class="logo" src="bildungsamtlogo.jpg">
+    <div class="login-form">
+        <form action="/login" method="post">
+            <div class="form-txt">Registrierung der <br> Schülerinnen & Schüler</div>
+            <label for="username">Benutzername:</label>
+            <input type="text" id="username" placeholder="Benutzername..." name="username" required oninput="validateForm()">
+            <label for="password">Starkes Passwort erstellen:</label>
+            <input type="password" placeholder="passwort" id="password" name="password" required oninput="validateForm()">
+            <div class="pwdcon">◉ mindestens 8 Zeichen <br> ◉ ein Großbuchstabe <br> ◉ eine Zahl <br> ◉ ein Sonderzeichen</div>
+            <input class="login-btn" id="submitBtn" type="submit" value="Login" disabled>
+        </form>
+    </div>
+    <div class="text-section">
+        <h2>P-Seminararbeit Projekte der 11. Jahrgangstufen im Landkreis FFB</h2>
+        <p>Hier sind alle  Schülerinnen und Schüler der 11. Jahrgangsstufen des Landkreises Fürstenfeldbruck, verpflichtet sich einzutragen</p>
+        <p>Bitte melden Sie sich innerhalb der nächsten Tage an.</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Landkreis Fürstenfeldbruck. Alle Rechte vorbehalten.</p>
+    <p>
+        <a href="#">Kontakt</a>
+        <a href="#">Impressum</a>
+        <a href="#">Landratsamt</a>
+    </p>
+</footer>
+
+<script>
+    function validateForm() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const submitBtn = document.getElementById('submitBtn');
+
+        const passwordCriteria = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/;
+
+        if (username && passwordCriteria.test(password)) {
+            submitBtn.classList.add('active');
+            submitBtn.disabled = false;
+        } else {
+            submitBtn.classList.remove('active');
+            submitBtn.disabled = true;
+        }
+    }
+</script>
+
+</body>
+</html>
