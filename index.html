@@ -290,8 +290,9 @@
             top: -20%;
             left: 50%;
             transform: translate(-50%, 0%);
-            background-color: rgb(28, 42, 114);
-            color: white;
+            background-color: rgb(250, 247, 247);
+            box-shadow: #8d8c8c;
+            color: rgb(35, 52, 113);
             padding: 20px;
             border: none;
             border-radius: 8px;
@@ -303,7 +304,7 @@
 
         .popup.show {
             top: 8%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -12%);
         }
 
         .popup h2 {
@@ -405,14 +406,14 @@
         popup.style.display = 'block';
                 setTimeout(() => {
                     popup.classList.add('show');
-                }, 200);
+                }, 370);
                 setTimeout(() => {
                     popup.classList.remove('show');
                     setTimeout(() => {
                         popup.style.display = 'none';
-                    }, 1000);
-                }, 3000);
-            }, 1300);
+                    }, 1500);
+                }, 2000);
+            }, 3000);
         
 
       
